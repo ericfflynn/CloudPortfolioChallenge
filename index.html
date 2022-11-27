@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"
+	meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>EricJFlynn.com</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="header">
+		<div class="container">
+			<nav>
+				<img src="images/logo2.png" class="logo">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Portfolio</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</nav>
+			<div class="header-text">
+				<p>Aspiring Full-Stack Developer</p>
+				<h1>Hi, I'm Eric Flynn <br>Welcome to my website!</h1>
+			</div>
+		</div>
+	</div>
+<!-- ------------about----------- -->
+	<div id="about">
+		<div class="container">
+			<div class="row">
+				<div class="about-col-1">
+					<img src="images/hoboken.jpeg"> 
+				</div>
+				<div class="about-col-2">
+					<h1 class="sub-title">About Me</h1>
+					<p>I was born and rasied in Long Island, NY. I attended the 4+1 accelerated masters program in Industrial & Systems Engineering from Binghamton University. It was during this time, that I was first introduced to programming with an intro to Python course. I quickly became obsessed and I am now on a journey to learn and master as much computer science technologies as I can. In my current position as a BI Developer, I am able to blend my ISE background with my keen interest in computer programming. This involves collecting, organizing, and visualizing data to analyze and improve business processes.</p>
+
+					<div class="tab-titles">
+						<p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+						<p class="tab-links" onclick="opentab('experience')">Experience</p>
+						<p class="tab-links" onclick="opentab('education')">Education</p>
+					</div>
+					<div class="tab-contents active-tab" id="skills">
+						<ul>
+							<li><span>Operating Systems</span><br>Windows, MacOS, Linux</li>
+							<li><span>Data Analytics</span><br>Python, SQL, Anaconda, R</li>
+							<li><span>Data Visualization</span><br>Microsoft Power BI, Tableau</li>
+							<li><span>Cloud Computing</span><br>Amazon Web Services</li>
+							<li><span>Web Development</span><br>Html, CSS, JavaScript, Streamlit, Dash</li>
+						</ul>
+					</div>
+					<div class="tab-contents" id="experience">
+						<ul>
+							<li><span>2021-Current</span><br>Kiss Products Inc.</li>
+						</ul>
+					</div>
+					<div class="tab-contents" id="education">
+						<ul>
+							<li><span>2016-2020</span><br>BS Industrial & Systems Engineering | Binghamton University</li>
+							<li><span>2020-2021</span><br>MS Industrial & Systems Engineering | Binghamton University</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script>
+
+	var tablinks = document.getElementsByClassName("tab-links");
+	var tabcontents = document.getElementsByClassName("tab-contents");
+
+	function opentab(tabname){
+
+		for (tablink of tablinks){
+			tablink.classList.remove("active-link");
+		}
+		for (tabcontent of tabcontents){
+			tabcontent.classList.remove("active-tab");
+		}
+		event.currentTarget.classList.add("active-link");
+		document.getElementById(tabname).classList.add("active-tab")
+	}
+
+</script>
+
+</body>
+</html>
