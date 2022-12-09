@@ -15,7 +15,7 @@
 				<ul id="sidemenu">
 					<li><a href="#header">Home</a></li>
 					<li><a href="#about">About</a></li>
-					<li><a href="#services">Services</a></li>
+					<!-- <li><a href="#services">Services</a></li> -->
 					<li><a href="#projects">Projects & Involvements</a></li>
 					<li><a href="#contact">Contact</a></li>
 					<i class="fa-solid fa-xmark" onclick="closemenu()"></i>
@@ -37,7 +37,7 @@
 				</div>
 				<div class="about-col-2">
 					<h1 class="sub-title">About Me</h1>
-					<p>Born and rasied in Long Island, NY. I completed the 4+1 accelerated masters program in Industrial & Systems Engineering from Binghamton University. It was during this time, that I was first introduced to computer programming and I have been obsessed ever since. I am now on a mission of continuous learning with the end goal of becoming a full stack developer. I hope you enjoy this website as it is my first attempt at developing a fully interactive static web application.</p>
+					<p>Born and rasied in Long Island, NY. I completed the 4+1 accelerated masters program in Industrial & Systems Engineering from Binghamton University. It was during this time, that I was first introduced to computer programming and I have been obsessed ever since. I am now on a mission of continuous learning with the end goal of becoming a Software Engineer. I hope you enjoy this website as it is my first attempt at developing a fully interactive static web application.</p>
 
 					<div class="tab-titles">
 						<p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
@@ -69,7 +69,7 @@
 			</div>
 		</div>
 	</div>
-<!-- ------------services----------- -->
+<!-- ------------services----------- 
 
 <div id="services">
 	<div class="container">
@@ -128,7 +128,7 @@
 				</div>
 			</div>
 		</div>
-		<a href="#" class="btn">See More</a>
+		<a href="#projects" class="btn">See More</a>
 	</div>
 </div>
 <!-- ------------contact----------- -->
@@ -137,34 +137,31 @@
 	<div class="container">
 		<div class="row">
 			<div class="contact-left">
-				<h1 class="sub-title">Contact Me</h1>
-				<p><i class="fa-solid fa-paper-plane"></i>ejflynn27@gmail.com</p>
+				<h1 class="sub-title">Lets Connect!</h1>
+				<!-- <p><i class="fa-solid fa-paper-plane"></i>ejflynn27@gmail.com</p> -->
 				<div class="social-icons">
 					<a href="https://www.linkedin.com/in/eric-flynn-2a834814a/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
 					<a href="https://github.com/ericfflynn" target="_blank"><i class="fa-brands fa-github"></i></a>		
 					<a href="https://medium.com/@ericfflynn" target="_blank"><i class="fa-brands fa-medium"></i></a>			
 				</div>
-				<a href="images/Flynn_Eric_Resume.pdf" download class="btn btn2">Download Resume</a>
+				<a href="images/Flynn_Eric_Resume.pdf" download target="_blank" class="btn btn2">Download Resume</a>
 			</div>
 			<div class="contact-right">
-				<form>
-					<input type="text" name="Name"  placeholder="Your Name" required>
-					<input type="text" name="Email"  placeholder="Your Email" required>
-					<textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+				<form onsubmit="sendEmail(); reset(); return false;">
+					<input id="name" type="text" name="Name"  placeholder="Your Name" required>
+					<input id="email" type="email" name="Email"  placeholder="Your Email Address" required>
+					<textarea id="message" name="Message" rows="6" placeholder="Enter message here"></textarea>
 					<button type="submit" class="btn btn2">Submit</button>
 				</form>
 			</div>
 		</div>
 	</div>
 	<div class="copyright">
-		<p>Copyright © ericjflynn.com | With Template by Easy Tutorials</p>
+		<p>Copyright © ericjflynn.com | With template by Easy Tutorials</p>
 </div>
 
 
-
-
 <script>
-
 	var tablinks = document.getElementsByClassName("tab-links");
 	var tabcontents = document.getElementsByClassName("tab-contents");
 
@@ -179,11 +176,9 @@
 		event.currentTarget.classList.add("active-link");
 		document.getElementById(tabname).classList.add("active-tab")
 	}
-
 </script>
 
 <script>
-
 	var sidemenu=document.getElementById("sidemenu");
 
 	function openmenu(){
@@ -191,6 +186,23 @@
 	}
 	function closemenu(){
 		sidemenu.style.right = "-200px";
+	}
+</script>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<script>
+	function sendEmail(){
+		Email.send({
+			SecureToken: "596d347e-db1d-465e-a376-af52ca509e92",
+		    To : 'ejflynn27@gmail.com',
+		    From : document.getElementById("email").value,
+		    Subject : "Inquiry From ericjflynn.com",
+		    Body : "Name: " + document.getElementById("name").value
+		    + "<br> Message: " + document.getElementById("message").value
+		}).then(
+		  message => alert("Message Sent Successfully")
+		);
 	}
 </script>
 
