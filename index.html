@@ -196,9 +196,10 @@
 		Email.send({
 			SecureToken: "596d347e-db1d-465e-a376-af52ca509e92",
 		    To : 'ejflynn27@gmail.com',
-		    From : document.getElementById("email").value,
+		    From : 'email@ericjflynn.com',
 		    Subject : "Inquiry From ericjflynn.com",
 		    Body : "Name: " + document.getElementById("name").value
+		    + "<br> Email: " + document.getElementById("email").value
 		    + "<br> Message: " + document.getElementById("message").value
 		}).then(
 		  message => alert("Message Sent Successfully")
